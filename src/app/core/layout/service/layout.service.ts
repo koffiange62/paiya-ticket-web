@@ -42,10 +42,10 @@ export interface TabCloseEvent {
 export class LayoutService {
     _config: layoutConfig = {
         preset: 'Aura',
-        primary: 'emerald',
+        primary: 'noir',
         surface: null,
         darkTheme: false,
-        menuMode: 'slim',
+        menuMode: 'static',
         layoutTheme: 'colorScheme'
     };
 

@@ -1,0 +1,112 @@
+{
+	"app": {
+		"description": "Ceci est une application exemple.",
+		"title": "Paiya-Ticket"
+	},
+    "topbar_menu": {
+        "profile": {
+            "description": "Page de profil.",
+            "label": "Profile"
+        },
+        "settings": {
+            "description": "Page de paramètres.",
+            "label": "Paramètres"
+        },
+        "disconnect": {
+            "description": "Déconnexion de l'application.",
+            "label": "Déconnexion"
+        },
+        "tab_message" : "Utilisez (cmd + clic) sur un élément du menu pour ouvrir un nouvel onglet."
+    },
+    "menus":{
+        "attendee_menu": {
+            "category": {
+                "description": "Liste des catégories disponibles.",
+                "label": "Catégorie",
+                "concert": {
+                    "description": "Liste des concerts disponibles.",
+                    "label": "Concert et Festival"
+                },
+                "expo": {
+                    "description": "Liste des expositions et conférences.",
+                    "label": "Expo et Conférence"
+                },
+                "meating": {
+                    "description": "Liste des excursions et rassemblements.",
+                    "label": "Escurtion et Rassemblement"
+                },
+                "religious": {
+                    "description": "Liste des événements religieux.",
+                    "label": "Religieux"
+                },
+                "social": {
+                    "description": "Liste des événements mondains.",
+                    "label": "Brunch et soirée"
+                },
+                "sport": {
+                    "description": "Liste des événements sportifs.",
+                    "label": "Sport"
+                }
+            },
+            "home": {
+                "description": "Page d'accueil de l'application.",
+                "label": "Accueil"
+            },
+            "ticket": {
+                "description": "Page de billetterie.",
+                "label": "Billeterie",
+                "my_refunds": {
+                    "description": "Liste de mes remboursements.",
+                    "label": "Mes Remboursements"
+                },
+                "my_tickets": {
+                    "description": "Liste de mes billets.",
+                    "label": "Mes billets"
+                }
+            }
+        },
+        "organizer_menu": {
+            "home": {
+                "description": "Page d'accueil de l'application.",
+                "label": "Accueil"
+            },
+            "menu": {
+                "billing": {
+                    "description": "Facturation des événements.",
+                    "label": "Facturation"
+                },
+                "description": "Menu de l'organisateur.",
+                "label": "Menu Organisateur",
+                "my_events": {
+                    "description": "Liste de mes événements.",
+                    "label": "Mes Évènements"
+                },
+                "sale_point": {
+                    "description": "Liste des événements mondains.",
+                    "label": "Point de ventes"
+                },
+                "ticket_control": {
+                    "description": "Contrôle des billets.",
+                    "label": "Contrôle de ticket"
+                }
+            }
+        }
+    },
+	"button": {
+		"cancel": "Annuler",
+		"submit": "Soumettre",
+        "create_new_event": "Créer un nouvel événement",
+        "create_new_ticket": "Créer un nouveau billet",
+        "switch_to_organizer": "Passer en mode organisateur",
+        "switch_to_attendee": "Passer en mode participant"
+	},
+	"error": {
+		"not_found": "Page non trouvée",
+		"server_error": "Erreur du serveur"
+	},
+	
+	"user": {
+		"logout": "Déconnexion",
+		"welcome": "Bienvenue, {{name}}!"
+	}
+}

@@ -1,0 +1,113 @@
+{
+	"app": {
+		"description": "This is a sample application.",
+		"title": "Paiya-Ticket"
+	},
+    "topbar_menu": {
+        "profile": {
+            "description": "Profile page.",
+            "label": "Profile"
+        },
+        "settings": {
+            "description": "Settings page.",
+            "label": "Settings"
+        },
+        "disconnect": {
+            "description": "Disconnect from the application.",
+            "label": "Disconnect"
+        },
+        "tab_message" : "Use (cmd + click) on a menu item to open a tab"
+    },
+    "menus":{
+        "attendee_menu": {
+            "category": {
+                "description": "List of available categories.",
+                "label": "Category",
+                "concert": {
+                    "description": "List of available concerts.",
+                    "label": "Concert and Festival"
+                },
+                "expo": {
+                    "description": "List of exhibitions and conferences.",
+                    "label": "Expo and Conference"
+                },
+                "meating": {
+                    "description": "List of excursions and gatherings.",
+                    "label": "Excursion and Gathering"
+                },
+                "religious": {
+                    "description": "List of religious events.",
+                    "label": "Religious"
+                },
+                "social": {
+                    "description": "List of social events.",
+                    "label": "Brunch and Party"
+                },
+                "sport": {
+                    "description": "List of sports events.",
+                    "label": "Sport"
+                }
+            },
+            "home": {
+                "description": "Application homepage.",
+                "label": "Home"
+            },
+            "ticket": {
+                "description": "Ticketing page.",
+                "label": "Ticketing",
+                "my_refunds": {
+                    "description": "List of my refunds.",
+                    "label": "My Refunds"
+                },
+                "my_tickets": {
+                    "description": "List of my tickets.",
+                    "label": "My Tickets"
+                }
+            }
+        },
+        "organizer_menu": {
+            "home": {
+                "description": "Organizer application homepage.",
+                "label": "Home"
+            },
+            "menu": {
+                "billing": {
+                    "description": "Event billing.",
+                    "label": "Billing"
+                },
+                "description": "Organizer menu.",
+                "label": "Organizer Menu",
+                "my_events": {
+                    "description": "List of my events.",
+                    "label": "My Events"
+                },
+                "sale_point": {
+                    "description": "List of sales points.",
+                    "label": "Sales Point"
+                },
+                "ticket_control": {
+                    "description": "Ticket control page.",
+                    "label": "Ticket Control"
+                }
+            }
+        }
+    },
+	
+	"button": {
+		"cancel": "Cancel",
+		"submit": "Submit",
+        "create_new_event": "Create a new event",
+        "create_new_ticket": "Create a new ticket",
+        "switch_to_organizer": "Switch to Organizer Mode",
+        "switch_to_attendee": "Switch to Attendee Mode"
+	},
+	"error": {
+		"not_found": "Page not found",
+		"server_error": "Server Error"
+	},
+	
+	"user": {
+		"logout": "Disconnect",
+		"welcome": "Welcome, {{name}}!"
+	}
+}
