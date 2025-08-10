@@ -77,23 +77,24 @@ import { _, TranslatePipe } from '@ngx-translate/core';
                         </span>
                         <i class="pi pi-angle-down"></i>
                     </button>
-                    <ul class="list-none hidden p-2 sm:p-4 m-0 rounded-border shadow absolute bg-surface-0 dark:bg-surface-900 origin-top w-48 mt-2 right-0 top-auto">
-                        <li class="flex items-start flex-col">
-                            <a pRipple class="flex p-2 rounded-border w-full items-center hover:bg-emphasis transition-colors duration-150 cursor-pointer">
-                                <i class="pi pi-user mr-4"></i>
-                                <span>Profile</span>
+                    <ul class="list-none p-4 m-0 rounded-border shadow hidden absolute bg-surface-0 dark:bg-surface-900 origin-top w-full sm:w-52 mt-2 right-0 top-auto">
+                        <li>
+                            <a pRipple class="flex p-2 rounded-border items-center hover:bg-emphasis transition-colors duration-150 cursor-pointer" (click)="changeUserViewMode()">
+                                <i class="pi pi-arrow-right-arrow-left !mr-4"></i>
+                                <span class="hidden sm:inline">{{ modeSwitcherText() }}</span>
                             </a>
-                            <a pRipple class="flex p-2 rounded-border w-full items-center hover:bg-emphasis transition-colors duration-150 cursor-pointer">
-                                <i class="pi pi-inbox mr-4"></i>
-                                <span>Inbox</span>
+                            <hr />
+                            <a pRipple class="flex p-2 rounded-border items-center hover:bg-emphasis transition-colors duration-150 cursor-pointer">
+                                <i class="pi pi-user !mr-4"></i>
+                                <span class="hidden sm:inline">{{ 'topbar_menu.profile.label' | translate}}</span>
                             </a>
-                            <a pRipple class="flex p-2 rounded-border w-full items-center hover:bg-emphasis transition-colors duration-150 cursor-pointer">
-                                <i class="pi pi-cog mr-4"></i>
-                                <span>Settings</span>
+                            <a pRipple class="flex p-2 rounded-border items_center hover:bg-emphasis transition-colors duration-150 cursor-pointer">
+                                <i class="pi pi-cog !mr-4"></i>
+                                <span class="hidden sm:inline">{{ 'topbar_menu.settings.label' | translate}}</span>
                             </a>
-                            <a pRipple class="flex p-2 rounded-border w-full items-center hover:bg-emphasis transition-colors duration-150 cursor-pointer">
-                                <i class="pi pi-power-off mr-4"></i>
-                                <span>Sign Out</span>
+                            <a pRipple class="flex p-2 rounded-border items_center hover:bg-emphasis transition-colors duration-150 cursor-pointer">
+                                <i class="pi pi-power-off !mr-4"></i>
+                                <span class="hidden sm:inline">{{ 'topbar_menu.disconnect.label' | translate}}</span>
                             </a>
                         </li>
                     </ul>
@@ -113,15 +114,24 @@ export class AppTopbar extends BaseComponent {
     @ViewChild('menubutton') menuButton!: ElementRef;
 
     searchActive: boolean = false;
-
+    modeSwitcherText = computed(()=>{
+            return (this.modeService.mode() === ModeEnum.ATTENDEE && this.languageSwticher()) ? 
+            this.translateService.instant(_('button.switch_to_organizer')) : this.translateService.instant(_('button.switch_to_attendee'));
+        });
+        
     constructor(public layoutService: LayoutService) {
         super();
     }
 
-    modeSwitcherText = computed(()=>{
-        return (this.modeService.mode() === ModeEnum.ATTENDEE && this.languageSwticher()) ? 
-        this.translateService.instant(_('button.switch_to_organizer')) : this.translateService.instant(_('button.switch_to_attendee'));
-    });
+    
+
+    changeUserViewMode(): void {
+        if (this.modeService.mode() === ModeEnum.ATTENDEE) {
+            this.modeService.mode.set(ModeEnum.ORGANIZER);
+        } else {
+            this.modeService.mode.set(ModeEnum.ATTENDEE);
+        }
+    }
 
     onMenuButtonClick() {
         this.layoutService.onMenuToggle();
