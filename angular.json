@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "verona-ng": {
+        "paiya-ticket-web": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -11,13 +11,13 @@
                 }
             },
             "root": "",
-            "sourceRoot": "public",
-            "prefix": "app",
+            "sourceRoot": "src",
+            "prefix": "ptw",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:application",
                     "options": {
-                        "outputPath": "dist/verona-ng",
+                        "outputPath": "dist/paiya-ticket-web",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
                         "polyfills": [
@@ -64,10 +64,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "buildTarget": "verona-ng:build:production"
+                            "buildTarget": "paiya-ticket-web:build:production"
                         },
                         "development": {
-                            "buildTarget": "verona-ng:build:development"
+                            "buildTarget": "paiya-ticket-web:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
