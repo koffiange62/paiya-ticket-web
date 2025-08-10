@@ -1,6 +1,6 @@
 import { Component, computed, ElementRef, inject, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
 import { LayoutService } from '../service/layout.service';
@@ -108,6 +108,7 @@ import { _, TranslatePipe } from '@ngx-translate/core';
 })
 export class AppTopbar extends BaseComponent {
     modeService = inject(ModeService);
+    router = inject(Router);
     menu: MenuItem[] = [];
 
     @ViewChild('searchinput') searchInput!: ElementRef;
@@ -123,13 +124,13 @@ export class AppTopbar extends BaseComponent {
         super();
     }
 
-    
-
     changeUserViewMode(): void {
         if (this.modeService.mode() === ModeEnum.ATTENDEE) {
             this.modeService.mode.set(ModeEnum.ORGANIZER);
+            this.router.navigate(['/organizer']);
         } else {
             this.modeService.mode.set(ModeEnum.ATTENDEE);
+            this.router.navigate(['/']);
         }
     }
 
