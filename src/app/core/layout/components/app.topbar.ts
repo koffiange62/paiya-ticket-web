@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, computed, ElementRef, inject, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -10,11 +10,16 @@ import { ButtonModule } from 'primeng/button';
 import { IconField } from 'primeng/iconfield';
 import { InputIcon } from 'primeng/inputicon';
 import { FormsModule } from '@angular/forms';
+import { BaseComponent } from './base.component';
+import { ModeService } from '../service/mode.service';
+import { ModeEnum } from '@/shared/enums/mode.enum';
+import { _, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: '[app-topbar]',
     standalone: true,
-    imports: [RouterModule, CommonModule, StyleClassModule, FormsModule, Ripple, InputText, ButtonModule, IconField, InputIcon],
+    imports: [RouterModule, CommonModule, StyleClassModule, FormsModule, Ripple, 
+            InputText, ButtonModule, IconField, InputIcon, TranslatePipe],
     template: `
         <div class="layout-topbar">
             <a class="app-logo" routerLink="/">
@@ -48,6 +53,9 @@ import { FormsModule } from '@angular/forms';
             </ul>
 
             <div class="topbar-actions">
+                <p-button id="languageSwitcher" [label]="languageSwticher() | uppercase" (onClick)="changeLanguage()" variant="outlined"/>
+                <p-button id="createEvent" [label]="'button.create_new_event' | translate" icon="pi pi-plus" />
+
                 <p-button icon="pi pi-palette" rounded (onClick)="layoutService.showConfigSidebar()"></p-button>
                 <div class="topbar-search" [ngClass]="{ 'topbar-search-active': searchActive }">
                     <button pButton [rounded]="true" severity="secondary" type="button" icon="pi pi-search" (click)="activateSearch()"></button>
@@ -97,16 +105,23 @@ import { FormsModule } from '@angular/forms';
         class: 'layout-topbar'
     }
 })
-export class AppTopbar {
+export class AppTopbar extends BaseComponent {
+    modeService = inject(ModeService);
     menu: MenuItem[] = [];
 
     @ViewChild('searchinput') searchInput!: ElementRef;
-
     @ViewChild('menubutton') menuButton!: ElementRef;
 
     searchActive: boolean = false;
 
-    constructor(public layoutService: LayoutService) {}
+    constructor(public layoutService: LayoutService) {
+        super();
+    }
+
+    modeSwitcherText = computed(()=>{
+        return (this.modeService.mode() === ModeEnum.ATTENDEE && this.languageSwticher()) ? 
+        this.translateService.instant(_('button.switch_to_organizer')) : this.translateService.instant(_('button.switch_to_attendee'));
+    });
 
     onMenuButtonClick() {
         this.layoutService.onMenuToggle();
