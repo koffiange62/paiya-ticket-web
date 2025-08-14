@@ -7,6 +7,7 @@ export const appRoutes: Routes = [
         component: AppLayout,
         children: [
             { path: '', loadComponent:() => import('@/features/empty/empty').then(c => c.Empty)},
+            { path: 'organizer', data : { breadcrumb: 'organizer' }, loadChildren: () => import('@/features/organizer/organizer.routes').then(m => m.default) },
         ]
     }
 ];

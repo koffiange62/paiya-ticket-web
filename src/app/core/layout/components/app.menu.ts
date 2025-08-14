@@ -117,12 +117,6 @@ export class AppMenu extends BaseComponent implements OnInit{
     buildOrganizerMenuTranslation() : MenuItem[] {
         const organizerMenu: MenuItem[] = [
             {
-                label: this.translateService.instant(_('menus.organizer_menu.home.label')),
-                icon: 'pi pi-home',
-                routerLink: ['/'],
-                tooltip: this.translateService.instant(_('menus.organizer_menu.home.description')),
-            },
-            {
                 label: this.translateService.instant(_('menus.organizer_menu.menu.label')),
                 icon: 'pi pi-sitemap',
                 items: [
