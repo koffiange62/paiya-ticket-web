@@ -92,13 +92,29 @@
             }
         }
     },
+    "table": {
+        "header": {
+            "image": "Miniature",
+            "title": "Titre",
+            "created_at": "Créé le",
+            "status": "Statut",
+            "action": "Action"
+        },
+        "empty": {
+            "title": "Aucun élément trouvé",
+            "description": "Aucun élément ne correspond à votre recherche."
+        }
+    },
 	"button": {
 		"cancel": "Annuler",
 		"submit": "Soumettre",
         "create_new_event": "Créer un nouvel événement",
         "create_new_ticket": "Créer un nouveau billet",
         "switch_to_organizer": "Passer en mode organisateur",
-        "switch_to_attendee": "Passer en mode participant"
+        "switch_to_attendee": "Passer en mode participant",
+        "delete": "Supprimer",
+        "publish": "Publier",
+        "continue": "Continuer"
 	},
 	"error": {
 		"not_found": "Page non trouvée",
@@ -108,5 +124,15 @@
 	"user": {
 		"logout": "Déconnexion",
 		"welcome": "Bienvenue, {{name}}!"
-	}
+	},
+
+    "pages": {
+        "organizer_welcome_page": {
+            "title": "Vos Événements",
+            "description": "Cette page vous permet de gérer l'édition et la publication de vos événements."
+        }
+    },
+    
+    "components": {
+    }
 }

@@ -99,8 +99,25 @@
         "create_new_event": "Create a new event",
         "create_new_ticket": "Create a new ticket",
         "switch_to_organizer": "Switch to Organizer Mode",
-        "switch_to_attendee": "Switch to Attendee Mode"
+        "switch_to_attendee": "Switch to Attendee Mode",
+        "delete": "Delete",
+        "publish": "Publish",
+        "continue": "Continue"
 	},
+    "table": {
+        "header": {
+            "image": "Thumbnail",
+            "title": "Title",
+            "created_at": "Created At",
+            "status": "Status",
+            "action": "Action"
+        },
+        "empty": {
+            "title": "No items found",
+            "description": "No items match your search."
+        }
+    },
+
 	"error": {
 		"not_found": "Page not found",
 		"server_error": "Server Error"
@@ -109,5 +126,15 @@
 	"user": {
 		"logout": "Disconnect",
 		"welcome": "Welcome, {{name}}!"
-	}
+	},
+
+    "pages": {
+        "organizer_welcome_page": {
+            "title": "Your Events",
+            "description": "Use this page to start from scratch and place your custom content."
+        }
+    },
+    
+    "components": {
+    }
 }

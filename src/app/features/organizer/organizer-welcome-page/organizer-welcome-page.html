@@ -1,1 +1,37 @@
-<p>organizer-welcome-page works!</p>
+<div class="grid grid-cols-12 gap-4">
+    <div class="col-span-12">
+        <div class="card">
+            <div class="font-semibold text-2xl mb-4">{{ 'pages.organizer_welcome_page.title'|translate }}</div>
+            <p class="text-gray-500">{{ 'pages.organizer_welcome_page.description'|translate }}</p>
+
+            <p-table class="table-auto w-full mt-4" [value]="data" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'">
+                <ng-template #header>
+                    <tr>
+                        <th>{{ 'table.header.image' | translate}}</th>
+                        <th>{{ 'table.header.title' | translate}}</th>
+                        <th>{{ 'table.header.created_at' | translate}}</th>
+                        <th>{{ 'table.header.status' | translate}}</th>
+                        <th>{{ 'table.header.action' | translate}}</th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-item>
+                    <tr>
+                        <td class="w-60">
+                            <img [src]="item.image" alt="{{ item.title }}" class="w-48 object-cover mr-4 rounded" />
+                        </td>
+                        <td><span class="font-bold">{{ item.title | uppercase}}</span></td>
+                        <td>{{ item.createdAt | date:'longDate' }}</td>
+                        <td>
+                            <p-badge [value]="item.status" 
+                            [severity]="item.status === 'Draft' ? 'warn' : item.status === 'Not set up' ? 'danger' : item.status === 'Active' ? 'success' : 'info'" />
+                        
+                        </td>
+                        <td>
+                            <p-splitbutton label="{{ 'button.continue' | translate}}" icon="pi pi-pencil"  [model]="items" />
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
